@@ -4,16 +4,15 @@
     <mat-card-subtitle> {{ hero.alter_ego }} </mat-card-subtitle>
   </mat-card-header>
   <!-- TODO: Image -->
+  <img mat-card-image [src]="hero | heroImage" [alt]="hero.id" />
 
   <mat-card-content class="mt-2">
-    <h4>
-      {{ hero.publisher }}
-    </h4>
+    <h4>{{ hero.publisher }}</h4>
     <p>
       <strong>Primera aparicion</strong> {{ hero.first_appearance }}
-      <mat-chip-listbox >
+      <mat-chip-listbox>
         <mat-chip
-          *ngFor="let name of hero.characters.split(',') | slice : 0:3"
+          *ngFor="let name of hero.characters.split(',') | slice : 0 : 3"
         >
           {{ name }}
         </mat-chip>
