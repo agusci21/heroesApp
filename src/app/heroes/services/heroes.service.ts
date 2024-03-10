@@ -21,4 +21,9 @@ export class HeroesService {
       catchError((error) => of(undefined))
     )
   }
+
+  getSuggestions(query: string) : Observable<Hero[]> {
+    const url = `${this.baseUrl}/heroes?q=${query}&_limit=6`;
+    return this.httpClient.get<Hero[]>(url)
+  }
 }
